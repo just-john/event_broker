@@ -1,23 +1,25 @@
 
 add_executable (
-    untitled
+    event_broker
+    event_broker.cpp
+    listener.cpp
     main.cpp
 )
 
 target_include_directories(
-    untitled
+    event_broker
     PRIVATE
         $ENV{PROJECT_SRC_DIR}
         ${Boost_INCLUDE_DIRS}
 )
 
 target_link_libraries (
-	untitled
+	event_broker
     PRIVATE
     pthread
 )
 
 install (
-    TARGETS untitled
+    TARGETS event_broker
     DESTINATION $ENV{PROJECT_BIN_DIR}/
 )
